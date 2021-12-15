@@ -15,7 +15,7 @@ import {
   Box,
   ModalCloseButton,
   Skeleton,
-} from '@pancakeswap/uikit'
+} from 'pancake-uikit'
 import { useWeb3React } from '@web3-react/core'
 import { useAppDispatch } from 'state'
 import { usePriceBnbBusd } from 'state/farms/hooks'

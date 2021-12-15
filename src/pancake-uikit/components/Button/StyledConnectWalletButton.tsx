@@ -1,6 +1,6 @@
 import styled, { DefaultTheme } from "styled-components";
 import { space, layout, variant } from "styled-system";
-import { scaleVariants, styleVariants,  } from "./theme";
+import { scaleVariants, styleVariants,   } from "./theme";
 import { BaseButtonProps } from "./types";
 
 interface ThemedButtonProps extends BaseButtonProps {
@@ -32,6 +32,11 @@ const getDisabledStyles = ({ $isLoading, theme }: TransientButtonProps) => {
     }
   `;
 };
+const textColor = ({ theme }: ThemedButtonProps) => {
+  return `
+    color: ${theme.colors.primary};
+  `;
+};
 
 /**
  * This is to get around an issue where if you use a Link component
@@ -58,6 +63,7 @@ const StyledConnectWalletButton = styled.button<BaseButtonProps>`
   opacity: ${getOpacity};
   outline: 0;
   transition: background-color 0.2s, opacity 0.2s;
+  height: 48px;
 
   &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active) {
     opacity: 0.65;
@@ -69,6 +75,7 @@ const StyledConnectWalletButton = styled.button<BaseButtonProps>`
     box-shadow: none;
   }
 
+  ${textColor}
   ${getDisabledStyles}
   ${variant({
   prop: "scale",
