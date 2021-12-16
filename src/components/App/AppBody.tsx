@@ -3,10 +3,11 @@ import styled from 'styled-components'
 import { Card } from 'pancake-uikit'
 
 export const BodyWrapper = styled(Card)`
-  border-radius: 24px;
-  max-width: 436px;
+  border-radius: 16px;
+  max-width: 560px;
   width: 100%;
   z-index: 1;
+  box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.06);
 `
 
 /**

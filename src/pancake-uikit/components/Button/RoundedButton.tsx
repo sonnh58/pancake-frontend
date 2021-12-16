@@ -43,10 +43,10 @@ const getOpacity = ({ $isLoading = false }: TransientButtonProps) => {
   return $isLoading ? ".5" : "1";
 };
 
-const StyledButton = styled.button<BaseButtonProps>`
+const RoundedButton = styled.button<BaseButtonProps>`
   align-items: center;
   border: 0;
-  border-radius: 6px;
+  border-radius: 1000px;
   box-shadow: 0px -1px 0px 0px rgba(14, 14, 44, 0.4) inset;
   cursor: pointer;
   display: inline-flex;
@@ -82,4 +82,4 @@ const StyledButton = styled.button<BaseButtonProps>`
   ${space}
 `;
 
-export default StyledButton;
+export default RoundedButton;

@@ -48,6 +48,17 @@ const Label = styled(Text)`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.secondary};
 `
+const SwapCover = styled.div`
+  background: #FFFFFF;
+  border: 1px solid #E0E5ED;
+  box-sizing: border-box;
+  border-radius: 10px;
+`
+const Separator = styled.div`
+  background: #E0E5ED;
+  height: 1px;
+  flex-grow: 1;
+`
 
 export default function Swap({ history }: RouteComponentProps) {
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -308,46 +319,51 @@ export default function Swap({ history }: RouteComponentProps) {
         <AppHeader title={t('Exchange')} subtitle={t('Trade tokens in an instant')} />
         <Wrapper id="swap-page">
           <AutoColumn gap="md">
-            <CurrencyInputPanel
-              label={independentField === Field.OUTPUT && !showWrap && trade ? t('From (estimated)') : t('From')}
-              value={formattedAmounts[Field.INPUT]}
-              showMaxButton={!atMaxAmountInput}
-              currency={currencies[Field.INPUT]}
-              onUserInput={handleTypeInput}
-              onMax={handleMaxInput}
-              onCurrencySelect={handleInputSelect}
-              otherCurrency={currencies[Field.OUTPUT]}
-              id="swap-currency-input"
-            />
-            <AutoColumn justify="space-between">
-              <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
-                <ArrowWrapper clickable>
-                  <ArrowDownIcon
-                    width="16px"
-                    onClick={() => {
-                      setApprovalSubmitted(false) // reset 2 step UI for approvals
-                      onSwitchTokens()
-                    }}
-                    color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? 'primary' : 'text'}
-                  />
-                </ArrowWrapper>
-                {recipient === null && !showWrap && isExpertMode ? (
-                  <Button variant="text" id="add-recipient-button" onClick={() => onChangeRecipient('')}>
-                    {t('+ Add a send (optional)')}
-                  </Button>
-                ) : null}
-              </AutoRow>
-            </AutoColumn>
-            <CurrencyInputPanel
-              value={formattedAmounts[Field.OUTPUT]}
-              onUserInput={handleTypeOutput}
-              label={independentField === Field.INPUT && !showWrap && trade ? t('To (estimated)') : t('To')}
-              showMaxButton={false}
-              currency={currencies[Field.OUTPUT]}
-              onCurrencySelect={handleOutputSelect}
-              otherCurrency={currencies[Field.INPUT]}
-              id="swap-currency-output"
-            />
+            <SwapCover>
+              <CurrencyInputPanel
+                label={independentField === Field.OUTPUT && !showWrap && trade ? t('From (estimated)') : t('From')}
+                value={formattedAmounts[Field.INPUT]}
+                // showMaxButton={!atMaxAmountInput}
+                showMaxButton={!atMaxAmountInput}
+                currency={currencies[Field.INPUT]}
+                onUserInput={handleTypeInput}
+                onMax={handleMaxInput}
+                onCurrencySelect={handleInputSelect}
+                otherCurrency={currencies[Field.OUTPUT]}
+                id="swap-currency-input"
+              />
+              <AutoColumn justify="space-between">
+                <AutoRow justify={isExpertMode ? 'space-between' : 'end'} style={{ padding: '0 1.5rem' }}>
+                  {recipient === null && !showWrap && isExpertMode ? (
+                    <Button variant="text" id="add-recipient-button" onClick={() => onChangeRecipient('')} style={{ padding: '0' }}>
+                      {t('+ Add a send (optional)')}
+                    </Button>
+                  ) : null}
+                  <Separator />
+                  <ArrowWrapper clickable>
+                    <ArrowDownIcon
+                      onClick={() => {
+                        setApprovalSubmitted(false) // reset 2 step UI for approvals
+                        onSwitchTokens()
+                      }}
+                      color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? 'primary' : 'text'}
+                    />
+                  </ArrowWrapper>
+                </AutoRow>
+              </AutoColumn>
+              <CurrencyInputPanel
+                value={formattedAmounts[Field.OUTPUT]}
+                onUserInput={handleTypeOutput}
+                label={independentField === Field.INPUT && !showWrap && trade ? t('To (estimated)') : t('To')}
+                showMaxButton={false}
+                currency={currencies[Field.OUTPUT]}
+                onCurrencySelect={handleOutputSelect}
+                otherCurrency={currencies[Field.INPUT]}
+                id="swap-currency-output"
+                bellow
+              />
+            </SwapCover>
+
 
             {isExpertMode && recipient !== null && !showWrap ? (
               <>
@@ -364,7 +380,7 @@ export default function Swap({ history }: RouteComponentProps) {
             ) : null}
 
             {showWrap ? null : (
-              <AutoColumn gap="8px" style={{ padding: '0 16px' }}>
+              <AutoColumn gap="8px" style={{ padding: '16px' }}>
                 {Boolean(trade) && (
                   <RowBetween align="center">
                     <Label>{t('Price')}</Label>

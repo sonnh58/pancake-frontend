@@ -50,7 +50,7 @@ const getOpacity = ({ $isLoading = false }: TransientButtonProps) => {
 
 const StyledConnectWalletButton = styled.button<BaseButtonProps>`
   align-items: center;
-  border: 0;
+  border: 1px solid #E0E5ED;
   border-radius: 6px;
   background: white;
   cursor: pointer;

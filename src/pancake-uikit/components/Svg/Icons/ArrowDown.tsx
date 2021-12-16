@@ -1,13 +1,18 @@
 import React from "react";
-import Svg from "../Svg";
+import SvgFillNone from "../SvgFillNone";
 import { SvgProps } from "../types";
 
 const Icon: React.FC<SvgProps> = (props) => {
   return (
-    <Svg viewBox="0 0 24 24" {...props}>
-      <path d="M11 5V16.17L6.11997 11.29C5.72997 10.9 5.08997 10.9 4.69997 11.29C4.30997 11.68 4.30997 12.31 4.69997 12.7L11.29 19.29C11.68 19.68 12.31 19.68 12.7 19.29L19.29 12.7C19.68 12.31 19.68 11.68 19.29 11.29C18.9 10.9 18.27 10.9 17.88 11.29L13 16.17V5C13 4.45 12.55 4 12 4C11.45 4 11 4.45 11 5Z" />
-    </Svg>
-  );
+    <SvgFillNone width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <circle cx="20" cy="20" r="19.5" fill="white" stroke="#E0E5ED"/>
+      <path d="M31.2852 18.353L28.4982 22.503L25.2932 18.665" stroke="#418FFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M8.71503 22.6549L11.5 18.5029L14.707 22.3419" stroke="#418FFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M11.5356 18.54C10.8342 22.985 13.6692 27.2218 18.0456 28.269C20.8959 28.9451 23.8934 28.1045 25.9766 26.045" stroke="#418FFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M28.495 22.4792C29.0667 20.1855 28.6974 17.7585 27.4693 15.7387C26.2412 13.7189 24.2564 12.2741 21.957 11.7262C18.9074 11.0035 15.7076 12.0191 13.633 14.3682" stroke="#418FFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </SvgFillNone>
+
+);
 };
 
 export default Icon;
