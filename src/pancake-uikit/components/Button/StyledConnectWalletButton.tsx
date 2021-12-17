@@ -66,7 +66,8 @@ const StyledConnectWalletButton = styled.button<BaseButtonProps>`
   height: 48px;
 
   &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active) {
-    opacity: 0.65;
+    background: ${({theme}) => theme.colors.primary};
+    color: white
   }
 
   &:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled) {
