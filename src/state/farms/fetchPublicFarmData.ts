@@ -93,6 +93,18 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
   const allocPoint = info ? new BigNumber(info.allocPoint?._hex) : BIG_ZERO
   const poolWeight = totalAllocPoint ? allocPoint.div(new BigNumber(totalAllocPoint)) : BIG_ZERO
 
+  console.log({
+    tokenAmountMc: tokenAmountMc.toJSON(),
+    quoteTokenAmountMc: quoteTokenAmountMc.toJSON(),
+    tokenAmountTotal: tokenAmountTotal.toJSON(),
+    quoteTokenAmountTotal: quoteTokenAmountTotal.toJSON(),
+    lpTotalSupply: new BigNumber(lpTotalSupply).toJSON(),
+    lpTotalInQuoteToken: lpTotalInQuoteToken.toJSON(),
+    tokenPriceVsQuote: quoteTokenAmountTotal.div(tokenAmountTotal).toJSON(),
+    poolWeight: poolWeight.toJSON(),
+    multiplier: `${allocPoint.div(100).toString()}X`
+  })
+
   return {
     tokenAmountMc: tokenAmountMc.toJSON(),
     quoteTokenAmountMc: quoteTokenAmountMc.toJSON(),

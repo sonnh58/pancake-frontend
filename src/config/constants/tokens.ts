@@ -60,6 +60,15 @@ export const USDC = new Token(
 )
 
 const tokens = {
+  rice: {
+    symbol: 'RICE',
+    address: {
+      56: '0xcf909ef9a61dc5b05d46b5490a9f00d51c40bb28',
+      97: '0xCf909EF9A61dC5b05D46B5490A9f00D51c40Bb28',
+    },
+    decimals: 18,
+    projectLink: 'https://ricewallet.io/',
+  },
   bnb: {
     symbol: 'BNB',
     projectLink: 'https://www.binance.com/',
