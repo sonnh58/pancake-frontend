@@ -63,6 +63,7 @@ export const fetchFarmUserDataAsync = createAsyncThunk<FarmUserDataResponse[], {
     const userFarmTokenBalances = await fetchFarmUserTokenBalances(account, farmsToFetch)
     const userStakedBalances = await fetchFarmUserStakedBalances(account, farmsToFetch)
     const userFarmEarnings = await fetchFarmUserEarnings(account, farmsToFetch)
+    console.log(userFarmEarnings)
 
     return userFarmAllowances.map((farmAllowance, index) => {
       return {
@@ -100,6 +101,7 @@ export const farmsSlice = createSlice({
         const { pid } = userDataEl
         const index = state.data.findIndex((farm) => farm.pid === pid)
         state.data[index] = { ...state.data[index], userData: userDataEl }
+        console.log(pid)
       })
       state.userDataLoaded = true
     })

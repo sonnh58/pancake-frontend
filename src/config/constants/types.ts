@@ -63,7 +63,8 @@ export interface FarmConfig {
     rewardPerBlock: number
     earnLabel: string
     endBlock: number
-  }
+  },
+  type?: any
 }
 
 export interface PoolConfig {

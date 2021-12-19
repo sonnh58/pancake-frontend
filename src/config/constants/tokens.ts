@@ -3,10 +3,11 @@ import { ChainId, Token } from '@pancakeswap/sdk'
 export const CAKE: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(
     ChainId.MAINNET,
-    '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+    // '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+    '0x42531a5B37242Ca52aDb2498c9c35bB5840ae53E',
     18,
-    'CAKE',
-    'PancakeSwap Token',
+    'ONUS',
+    'ONUS TEST Token',
   ),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
@@ -74,9 +75,10 @@ const tokens = {
     projectLink: 'https://www.binance.com/',
   },
   cake: {
-    symbol: 'CAKE',
+    symbol: 'ONUS',
     address: {
-      56: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+      // 56: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+      56: '0x42531a5B37242Ca52aDb2498c9c35bB5840ae53E',
       97: '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
     },
     decimals: 18,
